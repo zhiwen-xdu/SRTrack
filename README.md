@@ -1,2 +1,2 @@
 # SRTrack
-Learning Effective Multi-modal Trackers via Self-regularized Tuning
+Optimizing Multi-Modal Trackers via Sensitivity-aware Regularized Tuning
