@@ -2,7 +2,7 @@
 <div align="center">
   <h3 align="center"><strong>Optimizing Multi-Modal Trackers via Sensitivity-aware Regularized Tuning [SRTrack] </strong></h3>
     <p align="center">
-    <a>Zhiwen Chen</a><sup>1</sup>&nbsp;&nbsp;
+    <a>Zhiwen Chen</a><sup>1,2</sup>&nbsp;&nbsp;
     <a>Jinjian Wu</a><sup>1</sup>&nbsp;&nbsp;
     <a>Zhiyu Zhu</a><sup>2</sup>&nbsp;&nbsp;
     <a>Yifan Zhang</a><sup>2</sup>&nbsp;&nbsp;
