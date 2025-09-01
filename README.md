@@ -31,3 +31,4 @@ This paper tackles the critical challenge of optimizing multi-modal trackers by 
   <img src="assets/SRTrack.png" width="100%" higth="100%">
 </div>
 
+### 📈 Data Preparation
