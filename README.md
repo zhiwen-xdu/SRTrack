@@ -31,9 +31,31 @@ This paper tackles the critical challenge of optimizing multi-modality trackers 
   <img src="assets/SRTrack.png" width="100%" higth="100%">
 </div>
 
-### 📈 Data Preparation
+## ![image](https://github.com/user-attachments/assets/4fdc3607-d768-47ae-9d07-75f5faa2be4a) Getting Started
+
+### ![image](https://github.com/user-attachments/assets/63613a3a-b789-4d2f-98b8-f2caf2f1970f) Installation
+
+### Data Preparation
 #### Pretrained Datasets
 
 #### Downstream Datasets
 
-### 📈 Pretrained Models
+### Pretrained Models
+
+
+## 🚀 Training
+
+## ![image](https://github.com/user-attachments/assets/4ba6ddbe-6ff9-4962-aca9-68c26ced0779) Evaluation
+
+## 📚 Citation
+If you use SRTrack/SRFT in your research, please use the following BibTeX entry.
+
+```
+@article{chen2025optimizing,
+  title={Optimizing Multi-Modal Trackers via Sensitivity-aware Regularized Tuning},
+  author={Chen, Zhiwen and Wu, Jinjian and Zhu, Zhiyu and Zhang, Yifan and Shi, Guangming and Hou, Junhui},
+  journal={arXiv preprint arXiv:2508.17488},
+  year={2025}
+}
+```
+
