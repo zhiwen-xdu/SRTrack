@@ -8,7 +8,7 @@ DATA:
     CENTER_JITTER: 3
     FACTOR: 4.0
     SCALE_JITTER: 0.25
-    SIZE: 256
+    SIZE: 384
     NUMBER: 1                            # 1 for common setting; 8 for Sequence Modeling;
   STD:
   - 0.229
@@ -18,7 +18,7 @@ DATA:
     CENTER_JITTER: 0
     FACTOR: 2.0
     SCALE_JITTER: 0
-    SIZE: 128
+    SIZE: 192
   TRAIN:
     DATASETS_NAME:
     - DepthTrack_Train
@@ -36,7 +36,7 @@ MODEL:
   EXTRA_MERGER: False
   RETURN_INTER: False
   BACKBONE:
-    TYPE: vit_base_patch16_224_prompt
+    TYPE: vit_base_patch16_384_prompt
     STRIDE: 16
     CE_LOC: [3, 6, 9]
     CE_KEEP_RATIO: [0.7, 0.7, 0.7]
@@ -49,7 +49,7 @@ TRAIN:
   DROP_PATH_RATE: 0.1
   CE_START_EPOCH: 4   # candidate elimination start epoch 1/15
   CE_WARM_EPOCH: 16   # candidate elimination warm up epoch 4/15
-  BATCH_SIZE: 80     #
+  BATCH_SIZE: 56     #
   EPOCH: 20
   GIOU_WEIGHT: 2.0
   L1_WEIGHT: 5.0
@@ -73,6 +73,6 @@ TRAIN:
 TEST:
   EPOCH: 60
   SEARCH_FACTOR: 4.0
-  SEARCH_SIZE: 256
+  SEARCH_SIZE: 384
   TEMPLATE_FACTOR: 2.0
-  TEMPLATE_SIZE: 128
+  TEMPLATE_SIZE: 192

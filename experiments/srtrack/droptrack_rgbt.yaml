@@ -5,11 +5,11 @@ DATA:
   - 0.456
   - 0.406
   SEARCH:
-    CENTER_JITTER: 3
-    FACTOR: 4.0
-    SCALE_JITTER: 0.25
-    SIZE: 256
-    NUMBER: 1                            # 1 for common setting; 8 for Sequence Modeling;
+    CENTER_JITTER: 4.5
+    FACTOR: 5.0
+    SCALE_JITTER: 0.5
+    SIZE: 384
+    NUMBER: 1
   STD:
   - 0.229
   - 0.224
@@ -18,21 +18,21 @@ DATA:
     CENTER_JITTER: 0
     FACTOR: 2.0
     SCALE_JITTER: 0
-    SIZE: 128
+    SIZE: 192
   TRAIN:
     DATASETS_NAME:
-    - DepthTrack_Train
+    - LasHeR_Train
     DATASETS_RATIO:
     - 1
     SAMPLE_PER_EPOCH: 80000           # 120000 For CoeSot_Train, 80000 For FE108_Train/VisEvent_Train
   VAL:
     DATASETS_NAME:
-    - DepthTrack_Val
+    - LasHeR_Val
     DATASETS_RATIO:
     - 1
     SAMPLE_PER_EPOCH: 10000          # 20000 For CoeSot_Val, 20000 For FE108_Val/VisEvent_Val
 MODEL:
-  PRETRAIN_FILE: "/home/czwos/Project/SIAMTrack/pretrained/OSTrack_ep0300.pth.tar"
+  PRETRAIN_FILE: "/home/czwos/Project/SIAMTrack/pretrained/DropTrack_k700_800E_alldata.pth.tar"
   EXTRA_MERGER: False
   RETURN_INTER: False
   BACKBONE:
@@ -47,16 +47,16 @@ MODEL:
 TRAIN:
   BACKBONE_MULTIPLIER: 0.1
   DROP_PATH_RATE: 0.1
-  CE_START_EPOCH: 4   # candidate elimination start epoch 1/15
-  CE_WARM_EPOCH: 16   # candidate elimination warm up epoch 4/15
-  BATCH_SIZE: 80     #
+  CE_START_EPOCH: 4  # candidate elimination start epoch 1/15
+  CE_WARM_EPOCH: 16  # candidate elimination warm up epoch 4/15
+  BATCH_SIZE: 56
   EPOCH: 20
   GIOU_WEIGHT: 2.0
   L1_WEIGHT: 5.0
   GRAD_CLIP_NORM: 0.1
   LR: 0.0004
   LR_DROP_EPOCH: 48  # 4/5
-  NUM_WORKER: 16
+  NUM_WORKER: 8
   OPTIMIZER: ADAMW
   PRINT_INTERVAL: 50
   SCHEDULER:
@@ -72,7 +72,7 @@ TRAIN:
   SAVE_LAST_N_EPOCH: 1
 TEST:
   EPOCH: 60
-  SEARCH_FACTOR: 4.0
-  SEARCH_SIZE: 256
+  SEARCH_FACTOR: 5.0
+  SEARCH_SIZE: 384
   TEMPLATE_FACTOR: 2.0
-  TEMPLATE_SIZE: 128
+  TEMPLATE_SIZE: 192

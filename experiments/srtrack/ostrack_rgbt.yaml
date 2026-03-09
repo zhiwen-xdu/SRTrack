@@ -9,7 +9,7 @@ DATA:
     FACTOR: 4.0
     SCALE_JITTER: 0.25
     SIZE: 256
-    NUMBER: 1                            # 1 for common setting; 8 for Sequence Modeling;
+    NUMBER: 1
   STD:
   - 0.229
   - 0.224
@@ -21,13 +21,13 @@ DATA:
     SIZE: 128
   TRAIN:
     DATASETS_NAME:
-    - DepthTrack_Train
+    - LasHeR_Train
     DATASETS_RATIO:
     - 1
-    SAMPLE_PER_EPOCH: 80000           # 120000 For CoeSot_Train, 80000 For FE108_Train/VisEvent_Train
+    SAMPLE_PER_EPOCH: 80000          # 120000 For CoeSot_Train, 80000 For FE108_Train/VisEvent_Train
   VAL:
     DATASETS_NAME:
-    - DepthTrack_Val
+    - LasHeR_Val
     DATASETS_RATIO:
     - 1
     SAMPLE_PER_EPOCH: 10000          # 20000 For CoeSot_Val, 20000 For FE108_Val/VisEvent_Val
@@ -47,16 +47,16 @@ MODEL:
 TRAIN:
   BACKBONE_MULTIPLIER: 0.1
   DROP_PATH_RATE: 0.1
-  CE_START_EPOCH: 4   # candidate elimination start epoch 1/15
-  CE_WARM_EPOCH: 16   # candidate elimination warm up epoch 4/15
-  BATCH_SIZE: 80     #
-  EPOCH: 20
+  CE_START_EPOCH: 4  # candidate elimination start epoch 1/15
+  CE_WARM_EPOCH: 16  # candidate elimination warm up epoch 4/15
+  BATCH_SIZE: 80
+  EPOCH: 30
   GIOU_WEIGHT: 2.0
   L1_WEIGHT: 5.0
   GRAD_CLIP_NORM: 0.1
   LR: 0.0004
   LR_DROP_EPOCH: 48  # 4/5
-  NUM_WORKER: 16
+  NUM_WORKER: 8
   OPTIMIZER: ADAMW
   PRINT_INTERVAL: 50
   SCHEDULER:
@@ -68,7 +68,7 @@ TRAIN:
   PROMPT:
     TYPE: vipt_deep
   FIX_BN: true
-  SAVE_EPOCH_INTERVAL: 1
+  SAVE_EPOCH_INTERVAL: 2
   SAVE_LAST_N_EPOCH: 1
 TEST:
   EPOCH: 60
