@@ -8,8 +8,8 @@ prj = join(dirname(__file__), '..')
 if prj not in sys.path:
     sys.path.append(prj)
 
-from lib.test.tracker.siamtrack import SIAMTrack
-import lib.test.parameter.vipt as rgbe_prompt_params
+from lib.test.tracker.siamtrack_dropmae import SIAMTrack
+import lib.test.parameter.vipt_dropmae as rgbe_prompt_params
 from lib.train.dataset.event_utils import get_merge_frame
 import multiprocessing
 import torch
@@ -106,12 +106,12 @@ if __name__ == '__main__':
     os.environ['CUDA_VISIBLE_DEVICES'] = '0,1,2,3,4,5,6,7'
     parser = argparse.ArgumentParser(description='Run tracker on RGBE dataset.')
     parser.add_argument('--script_name', type=str, default='vipt', help='Name of tracking method(ostrack, prompt, ftuning).')
-    parser.add_argument('--yaml_name', type=str, default='deep_rgbe', help='Name of tracking method.')
+    parser.add_argument('--yaml_name', type=str, default='droptrack_rgbe', help='Name of tracking method.')
     parser.add_argument('--dataset_name', type=str, default='CoeSot', help='Name of dataset (VisEvent).')
     parser.add_argument('--threads', default=40, type=int, help='Number of threads')
     parser.add_argument('--num_gpus', default=8, type=int, help='Number of gpus')
-    parser.add_argument('--experiment_id', default="SIAM208", type=str, help='epochs of ckpt')
-    parser.add_argument('--epoch', default=26, type=int, help='epochs of ckpt')
+    parser.add_argument('--experiment_id', default="SIAM203", type=str, help='epochs of ckpt')
+    parser.add_argument('--epoch', default=27, type=int, help='epochs of ckpt')
     parser.add_argument('--mode', default='parallel', type=str, help='running mode: [sequential , parallel]')
     parser.add_argument('--debug', default=0, type=int, help='to vis tracking results')
     parser.add_argument('--video', type=str, default='', help='Sequence name for debug.')
@@ -125,7 +125,7 @@ if __name__ == '__main__':
     seq_list = None
     if dataset_name == 'CoeSot':
         seq_home = '/home/czwos/Data/COESOT_V2'
-        with open('/home/czwos/Project/SIAMTrack/lib/train/data_specs/coesot_val_split.txt', 'r') as f:
+        with open('/home/czwos/Project/SIAMTrack/lib/train/data_specs/coesot_val_split.txt', 'r') as f:    # coesot_val_split.txt
             seq_list = f.read().splitlines()
         seq_list.sort()
     else:
